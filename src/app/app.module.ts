@@ -15,8 +15,10 @@ import { HomeComponent } from './modules/home/home/home.component';
 import { SidebarComponent } from './core/sidebar/sidebar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatIconModule} from '@angular/material/icon';
-import { AppBootstrapModule } from './app-bootstrap.module';
-import { AppMaterialModule } from './app-material.module';
+import { AppBootstrapModule } from './shared/app-bootstrap.module';
+import { AppMaterialModule } from './shared/app-material.module';
+import { HttpClientModule } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
 
 
 @NgModule({
@@ -30,6 +32,7 @@ import { AppMaterialModule } from './app-material.module';
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     AppBootstrapModule,
     AppRoutingModule ,
     ApagarModule,
@@ -40,7 +43,8 @@ import { AppMaterialModule } from './app-material.module';
     LoginModule,
     BrowserAnimationsModule,
     MatIconModule,
-    AppMaterialModule
+    AppMaterialModule,
+    HttpClientModule
    
     
     

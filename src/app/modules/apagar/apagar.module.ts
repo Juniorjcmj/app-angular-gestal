@@ -3,12 +3,24 @@ import { ApagarFormComponent } from './apagar-form/apagar-form.component';
 import { ApagarListComponent } from './apagar-list/apagar-list.component';
 import { ApagarHeaderComponent } from './apagar-header/apagar-header.component';
 import { ApagarRoutingModule } from './apagar.routing.module';
+import { PageApagarComponent } from './page-apagar/page-apagar.component';
+import { AppMaterialModule } from 'src/app/shared/app-material.module';
+import { CommonModule } from '@angular/common';
+import { SharedModule } from 'src/app/shared/shared.module';
+
+
+
 
 
 @NgModule({
-  declarations: [ApagarFormComponent, ApagarListComponent, ApagarHeaderComponent],
+  declarations: [ApagarFormComponent, ApagarListComponent, ApagarHeaderComponent,PageApagarComponent],
   imports: [
-    ApagarRoutingModule
+    ApagarRoutingModule,
+    AppMaterialModule,
+    CommonModule, SharedModule
+    
+
+    
   ],
   exports:[],
   providers:[]

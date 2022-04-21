@@ -6,7 +6,11 @@ import { LoginFormComponent } from './modules/login/login-form/login-form.compon
 
 const routes: Routes =
  [
-    {path: '', component: HomeComponent},
+    {path: '',pathMatch:'full', redirectTo:'apagar' },
+    {
+      path: 'apagar',
+      loadChildren: () => import('./modules/apagar/apagar.module').then(m => m.ApagarModule)
+    },
     {path: 'login', component: LoginFormComponent}
 ]; // sets up routes constant where you define your routes
 
