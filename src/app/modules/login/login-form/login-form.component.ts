@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from '../login.service';
 
 @Component({
   selector: 'app-login-form',
@@ -7,9 +8,37 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginFormComponent implements OnInit {
 
-  constructor() { }
+  credentials = {
+    username: "",
+    password:""
+  }
+   
+
+  constructor( private loginService: LoginService) { }
 
   ngOnInit(): void {
+  }
+
+  onSubmit(){
+
+    
+
+    if((this.credentials.username != "" && this.credentials.password != "")&& (this.credentials.username != null && this.credentials.password != null))
+    {
+        this.loginService.genereteToken(this.credentials.username, this.credentials.password).subscribe(
+          (response:any) =>{            //success
+          
+             console.log(response.access_token);
+             
+          }, error =>{
+            //error
+            console.log(error);  
+          }
+        )
+
+    }else{
+      console.log("Campos estao vazios")
+    }
   }
 
 }

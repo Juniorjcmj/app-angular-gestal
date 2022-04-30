@@ -6,7 +6,7 @@ import { LoginFormComponent } from './modules/login/login-form/login-form.compon
 
 const routes: Routes =
  [
-    {path: '',pathMatch:'full', redirectTo:'apagar' },
+    {path: '',pathMatch:'full', redirectTo:'login' },
     {
       path: 'apagar',
       loadChildren: () => import('./modules/apagar/apagar.module').then(m => m.ApagarModule)

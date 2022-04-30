@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router'; // CLI imports router
 import { PageApagarComponent } from './page-apagar/page-apagar.component';
 
 const routes: Routes = [
-    {path: '', component: PageApagarComponent},
+    {path: 'apagar', component: PageApagarComponent},
    
     
 ]; // sets up routes constant where you define your routes
