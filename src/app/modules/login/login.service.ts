@@ -30,12 +30,7 @@ export class LoginService {
 
     return this.httpClient.post(`${this.apiUrlAutenticator}`,params.toString(),{ headers: headers })
   }
-
-
-
-
-
-  //checando se esta logando ou nao
+  // se esta logando ou nao
    loginUser(token: any){
 
     localStorage.setItem("token", token)

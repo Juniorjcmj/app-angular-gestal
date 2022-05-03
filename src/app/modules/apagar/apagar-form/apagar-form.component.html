@@ -1,1 +1,69 @@
-<p>apagar-form works!</p>
+<mat-card>
+
+  <mat-toolbar color="primary"> Detalhes da Despesa</mat-toolbar>
+
+  <mat-card-content>
+
+  <form [formGroup]="form" >
+    <mat-form-field class="full-width">
+      <mat-label>EMPRESA</mat-label>
+      <mat-select formControlName="empresa" name="empresa">
+        <mat-option value="null"></mat-option>
+        <mat-option value="CN Muzema">Casa Nobre Muzema</mat-option>
+        <mat-option value="CN Tijuquinha">Casa Nobre Tijuquinha</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field color="accent"class="full-width" color="primary">
+      <mat-label>VENCIMENTO</mat-label>
+      <input matInput formControlName="dataVencimento"  [matDatepicker]="dataVencimento">
+      <mat-datepicker-toggle matSuffix [for]="dataVencimento"></mat-datepicker-toggle>
+      <mat-datepicker #dataVencimento ></mat-datepicker>
+    </mat-form-field>
+
+
+    <mat-form-field class="full-width">
+      <input matInput placeholder="VALOR" formControlName="valorDuplicata" name="valorDuplicata">
+    </mat-form-field>
+
+    <mat-form-field class="full-width" >
+      <input matInput placeholder="FORNECEDOR" formControlName="fornecedor" name="fornecedor">
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <input matInput placeholder="NÚMERO DOCUMENTO" formControlName="nd" name="nd">
+    </mat-form-field>
+
+    <mat-form-field class="full-width" >
+      <input matInput placeholder="NÚMERO DE PARCELAS" formControlName="numeroParcelas" name="numeroParcelas">
+    </mat-form-field>
+
+
+    <mat-form-field class="full-width" >
+      <input matInput placeholder="SITUAÇÃO" formControlName="situacao" name="situacao">
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <input matInput placeholder="JUROS/MULTA" formControlName="jurosMulta" name="jurosMulta">
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <input matInput placeholder="DESCONTO" formControlName="desconto" name="desconto">
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <input matInput placeholder="LOCAL DE PAGAMENTO" formControlName="localPagamento" name="localPagamento">
+      </mat-form-field>
+
+
+  </form>
+
+</mat-card-content>
+
+    <mat-card-actions>
+      <button mat-raised-button color="primary" (click)="onSubmit()">Salvar</button>
+      <button mat-raised-button (click)="onCancel()" >Cancelar</button>
+    </mat-card-actions>
+
+</mat-card>
+

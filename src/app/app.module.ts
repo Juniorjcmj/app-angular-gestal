@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './core/header/header/header.component';
 import { FooterComponent } from './core/footer/footer/footer.component';
 import { ApagarModule } from './modules/apagar/apagar.module';
 import { ConciliacaoModule } from './modules/conciliacao/conciliacao.module';
@@ -17,17 +16,21 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatIconModule} from '@angular/material/icon';
 import { AppBootstrapModule } from './shared/app-bootstrap.module';
 import { AppMaterialModule } from './shared/app-material.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { NavBarComponent } from './core/nav-bar/nav-bar.component';
+import { LoginService } from './modules/login/login.service';
+import { AuthInterceptor } from './core/interceptors/auth.interceptor';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [
-    AppComponent,
-    HeaderComponent,
+    AppComponent,   
     FooterComponent,
     HomeComponent,
-    SidebarComponent
+    SidebarComponent,
+    NavBarComponent
       
   ],
   imports: [
@@ -44,12 +47,19 @@ import { CommonModule } from '@angular/common';
     BrowserAnimationsModule,
     MatIconModule,
     AppMaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
    
     
     
   ],
-  providers: [],
+  providers: [
+     {
+       provide: HTTP_INTERCEPTORS, 
+       useClass: AuthInterceptor,
+       multi:true 
+      }
+    ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

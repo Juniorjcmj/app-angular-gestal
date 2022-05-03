@@ -14,7 +14,7 @@ import { ExpedicaoRoutingModule } from './expedicao.routing.module';
     EntregaHomeComponent
   ],
   imports: [
-    ExpedicaoRoutingModule
+    
   ]
 })
 export class ExpedicaoModule { }

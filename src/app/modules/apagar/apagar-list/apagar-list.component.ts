@@ -1,11 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { ContasPagar } from '../model/contas-pagar';
 import { ApagarService } from '../apagar.service';
 import { catchError, Observable, of } from 'rxjs';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog,MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ErrorDialogComponent } from '../../../shared/components/error-dialog/error-dialog.component';
-
-
+import { ApagarFormComponent } from '../apagar-form/apagar-form.component';
 
 @Component({
   selector: 'app-apagar-list',
@@ -16,7 +15,7 @@ export class ApagarListComponent implements OnInit {
 
   contasApagar$: Observable<ContasPagar[]>;
 
- displayedColumns: string[] = ['Empresa', 'Vencimento', 'Valor', 'Fornecedor'];
+ displayedColumns: string[] = ['EMPRESA', 'VENCIMENTO', 'VALOR', 'FORNECEDOR','DATA PG', 'SITUACAO','N/D', 'PARCELA', 'TIPO'];
  
  
  
@@ -24,7 +23,8 @@ export class ApagarListComponent implements OnInit {
    this.contasApagar$ = this.apagarService.list()
    .pipe(
      catchError(erros => {
-       this.onError("Erro ao Carregar!")
+       this.onError(erros)
+       console.log(erros)
            return of([])
      })
    )
@@ -37,6 +37,14 @@ export class ApagarListComponent implements OnInit {
   }
   
   ngOnInit(): void {
+  }
+
+  openDialog() {
+    this.dialog.open(ApagarFormComponent, {
+      data: {
+       
+      },
+    });
   }
 
 }

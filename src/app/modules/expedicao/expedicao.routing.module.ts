@@ -4,7 +4,7 @@ import { EntregaHomeComponent } from './entrega-home/entrega-home.component';
 
 
 const routes: Routes = [
-    {path: 'entrega', component: EntregaHomeComponent}   
+   
     
 ]; // sets up routes constant where you define your routes
 

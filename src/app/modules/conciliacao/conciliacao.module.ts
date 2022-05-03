@@ -5,7 +5,7 @@ import { CartaoMovimentacaHeaderComponent } from './cartao/cartao-movimentaca-he
 import { CartaoMovimentacaListComponent } from './cartao/cartao-movimentaca-list/cartao-movimentaca-list.component';
 import { CartaoOperadoraHeaderComponent } from './cartao/cartao-operadora-header/cartao-operadora-header.component';
 import { CartaoOperadoraListComponent } from './cartao/cartao-operadora-list/cartao-operadora-list.component';
-import { ConciliacaoRoutingModule } from './conciliacao.routing.module';
+
 
 
 
@@ -19,7 +19,7 @@ import { ConciliacaoRoutingModule } from './conciliacao.routing.module';
     CartaoOperadoraHeaderComponent 
   ],
   imports: [   
-    ConciliacaoRoutingModule
+   
   ]
 })
 export class ConciliacaoModule { }

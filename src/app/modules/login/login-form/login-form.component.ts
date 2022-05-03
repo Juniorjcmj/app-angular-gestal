@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { LoginService } from '../login.service';
 
 @Component({
@@ -14,21 +15,24 @@ export class LoginFormComponent implements OnInit {
   }
    
 
-  constructor( private loginService: LoginService) { }
+  constructor( private loginService: LoginService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
-  onSubmit(){
-
-    
+  onSubmit(){    
 
     if((this.credentials.username != "" && this.credentials.password != "")&& (this.credentials.username != null && this.credentials.password != null))
     {
         this.loginService.genereteToken(this.credentials.username, this.credentials.password).subscribe(
-          (response:any) =>{            //success
-          
-             console.log(response.access_token);
+          (response:any) =>{   
+                     //success
+           localStorage.setItem('token', response.access_token);
+           localStorage.setItem('expires_in', response.expires_in);
+           localStorage.setItem('nome', response.nome_completo);
+           localStorage.setItem('refresh_token', response.refresh_token);
+           localStorage.setItem('token_type', response.token_type);          
+           this.router.navigate(['apagar-page'])
              
           }, error =>{
             //error

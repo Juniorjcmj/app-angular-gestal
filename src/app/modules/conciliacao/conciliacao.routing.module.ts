@@ -6,9 +6,7 @@ import { CartaoMovimentacaFormComponent } from './cartao/cartao-movimentaca-form
 
 
 const routes: Routes = [
-    {path: 'cartao', component: CartaoMovimentacaHeaderComponent},
-    {path: 'cartao-form', component: CartaoMovimentacaFormComponent},
-    {path: 'operadora', component: CartaoOperadoraHeaderComponent},
+   
     
 ]; // sets up routes constant where you define your routes
 

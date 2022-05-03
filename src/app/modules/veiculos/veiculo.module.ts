@@ -20,7 +20,7 @@ import { VeiculoRoutingModule } from './veiculo.routing.module';
     VeiculoDespesaHeaderComponent
   ],
   imports: [
-    VeiculoRoutingModule
+    
   ]
 })
 export class VeiculoModule { }

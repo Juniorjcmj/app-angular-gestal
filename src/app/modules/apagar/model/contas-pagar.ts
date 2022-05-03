@@ -1,8 +1,10 @@
+import { Empresa } from "./empresa";
+
 export interface ContasPagar {
 
     id?: string;
-    dataVencimento?: Date;
-    dataPagamento?: Date;
+    dataVencimento?: string;
+    dataPagamento?: string;
     valorDuplicata?:number;
     jurosMulta?:number;
     valorPago?:number;
@@ -22,6 +24,7 @@ export interface ContasPagar {
     numeroParcelas?:number;
     empresa_id?:String;
     nomeEmpresa?: String;
+    empresa: Empresa;
 
 
 }
