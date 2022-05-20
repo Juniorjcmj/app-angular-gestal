@@ -5,25 +5,25 @@
 
       <div *ngIf="contasApagar$ | async as contasApagar; else loading ">
             <table mat-table [dataSource]="contasApagar" class="mat-elevation-z8">
-                
+
                         <!-- Position Column -->
                       <ng-container matColumnDef="EMPRESA" >
                           <th mat-header-cell *matHeaderCellDef> EMPRESA </th>
                           <td mat-cell *matCellDef="let element" (click)="openDialog()"> {{element.empresa.nome}} </td>
                         </ng-container>
-              
+
                         <!-- Name Column -->
                         <ng-container matColumnDef="VENCIMENTO">
                             <th mat-header-cell *matHeaderCellDef>VENCIMENTO </th>
                   <td mat-cell *matCellDef="let element"> {{element.dataVencimento}} </td>
                 </ng-container>
-              
+
                 <!-- Weight Column -->
                 <ng-container matColumnDef="VALOR">
                   <th mat-header-cell *matHeaderCellDef> VALOR </th>
                   <td mat-cell *matCellDef="let element"> R$ {{element.valorDuplicata}} </td>
                 </ng-container>
-              
+
                 <!-- Symbol Column -->
                 <ng-container matColumnDef="FORNECEDOR">
                     <th mat-header-cell *matHeaderCellDef> FORNECEDOR </th>
@@ -51,7 +51,7 @@
                     <th mat-header-cell *matHeaderCellDef>TIPO</th>
                     <td mat-cell *matCellDef="let element"> {{element.tipoDespesa}} </td>
                 </ng-container>
-              
+
                 <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
                 <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
             </table>
@@ -63,5 +63,5 @@
 
 </ng-template>
 </mat-card>
-  
-  
+
+

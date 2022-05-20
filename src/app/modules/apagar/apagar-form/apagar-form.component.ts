@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Empresa } from '../model/empresa';
 import { ApagarService } from '../apagar.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { catchError, Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-apagar-form',
@@ -12,12 +13,13 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class ApagarFormComponent implements OnInit {
 
   form: FormGroup;
+  empresas: Empresa[] =[]
 
- 
 
-  constructor(private formBuilder: FormBuilder, private service: ApagarService, private snackBar: MatSnackBar) { 
+
+  constructor(private formBuilder: FormBuilder, private service: ApagarService, private snackBar: MatSnackBar) {
     this.form = this.formBuilder.group({
-    
+
     dataVencimento: [null],
     dataPagamento: [null],
     valorDuplicata: [null],
@@ -33,34 +35,41 @@ export class ApagarFormComponent implements OnInit {
     classificacao: [null],
     subClassificacao: [null],
     situacao: [null],
-    observacao: [null],  
+    observacao: [null],
     numeroParcelas: [null],
-    empresa:[null]
+    empresaId:[null]
 
     });
+
+    this.service.listEmpresa()
+    .subscribe(
+      (response:any) =>{
+       this.empresas = response;
+      }, error =>{
+            //error
+            console.log(error);
+          }
+    )
   }
 
   ngOnInit(): void {}
 
   onSubmit(){
     this.service.save(this.form.value)
-    .subscribe(result => console.log(result),
+    .subscribe(result => console.log("resposta" + result),
       error => {
-        this.onError();
-      })
-    ;
-    console.log(this.form.value);
+        this.snackBar.open("Erro ao Salvar Despesa", '',{duration: 5000});
+      });
   }
-
   onCancel(){
-
   }
+
   openSnackBar(message: string, action: string) {
     this.snackBar.open(message, action);
   }
 
-  private onError(){
-    this.snackBar.open("Erro ao Salvar Despesa", '',{duration: 5000});
+  findAllEmpresas(){
+    return this.service.listEmpresa();
   }
 
 }

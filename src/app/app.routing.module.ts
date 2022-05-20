@@ -12,6 +12,7 @@ import { UsuarioHomeComponent } from './modules/usuario/usuario-home/usuario-hom
 import { VeiculoHeaderComponent } from './modules/veiculos/veiculo-header/veiculo-header.component';
 import { VeiculoDespesaHeaderComponent } from './modules/veiculos/veiculo-despesa-header/veiculo-despesa-header.component';
 import { ApagarListComponent } from './modules/apagar/apagar-list/apagar-list.component';
+import { PageComprasComponent } from './modules/page-compras/page-compras.component';
 
 const routes: Routes =
  [
@@ -21,8 +22,8 @@ const routes: Routes =
       component: ApagarListComponent,
       canActivate: [AuthGuard]
     },
-   
-    
+
+
     {path: 'login', component: LoginFormComponent},
     {path: 'cartao', component: CartaoMovimentacaHeaderComponent},
     {path: 'cartao-form', component: CartaoMovimentacaFormComponent},
@@ -30,7 +31,8 @@ const routes: Routes =
     {path: 'entrega', component: EntregaHomeComponent} ,
     {path: 'usuarios', component: UsuarioHomeComponent},
     {path: 'veiculo', component: VeiculoHeaderComponent},
-    {path: 'veiculo-despesa', component: VeiculoDespesaHeaderComponent}       
+    {path: 'veiculo-despesa', component: VeiculoDespesaHeaderComponent},
+    {path: 'page-compras', component: PageComprasComponent}
 ]; // sets up routes constant where you define your routes
 
 // configures NgModule imports and exports

@@ -15,15 +15,13 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [ApagarFormComponent, ApagarListComponent, ApagarHeaderComponent,PageApagarComponent],
-  imports: [    
+  imports: [
     AppMaterialModule,
     CommonModule,
     SharedModule,
     ReactiveFormsModule
-  
-    
 
-    
+
   ],
   exports:[],
   providers:[[{provider: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi:true }]]

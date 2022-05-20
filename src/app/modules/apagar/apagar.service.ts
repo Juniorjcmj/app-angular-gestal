@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { delay, first, tap } from 'rxjs';
 import { ContasPagar } from './model/contas-pagar';
 import { environment } from '../../../environments/environment';
+import { Empresa } from './model/empresa';
 
 @Injectable({
   providedIn: 'root'
@@ -13,14 +14,22 @@ export class ApagarService {
 
   constructor(private httpClient: HttpClient) { }
 
-  list(){         
+  list(){
     return this.httpClient.get<ContasPagar[]>(`${environment.apiUrlResourceServer}v1/api-financeiro/` )
     .pipe(
-      first(),
-      tap(resposta => console.log(resposta))      
+      first()
     );
   }
   save(record: ContasPagar){
-   return  this.httpClient.post<ContasPagar>(this.API, record).pipe(first());
+    console.log(record)
+   return  this.httpClient.post<ContasPagar>(`${this.API}v1/api-financeiro/`, record).pipe(first());
+  }
+
+  listEmpresa(){
+    return this.httpClient.get<Empresa[]>(`${environment.apiUrlResourceServer}v1/api-empresa/` )
+    .pipe(
+      first(),
+      tap(resposta => console.log(resposta))
+    );
   }
 }

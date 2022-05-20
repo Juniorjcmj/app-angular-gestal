@@ -1,0 +1,77 @@
+
+.mat-drawer-container {
+  background-color: #fafafa;
+  color: #000000de;
+}
+.mat-card {
+  background: white;
+
+}
+
+.triagem .mat-card
+{
+  border-style: solid;
+  border-bottom: 0px;
+  border-left: 0px;
+  border-right: 0px;
+  border-width: 10px;
+  text-align: center;
+  margin-left: 10px;
+}
+.yellow .mat-card
+{
+  border-color: rgb(164, 164, 27);
+  color: rgb(164, 164, 27);
+
+}
+.blue .mat-card
+{
+  border-color: rgb(96, 96, 199);
+  color:rgb(96, 96, 199); ;
+}
+.green .mat-card
+{
+  border-color: rgb(117, 179, 23);
+  color: rgb(117, 179, 23);
+}
+.yellow-right .mat-card
+{
+  border-color: rgb(164, 164, 27);
+  color: rgb(164, 164, 27);
+  border-style: solid;
+  border-bottom: 0px;
+  border-left: 0px;
+  border-right: 10px;
+  border-width: 0px;
+  margin-left: 10px;
+}
+.blue-right .mat-card
+{
+  border-color: rgb(96, 96, 199);
+  color:rgb(96, 96, 199); ;
+}
+.green-right .mat-card
+{
+  border-color: rgb(117, 179, 23);
+  color: rgb(117, 179, 23);
+}
+.mat-card
+{
+  width: 100%;
+  text-align: center;
+
+}
+.example-spacer {
+  flex: 1 1 auto;
+}
+.mat-toolbar-row, .mat-toolbar-single-row .top
+{
+  margin-top: 15px;
+}
+.full
+{
+  width: 100%;
+}
+table {
+  width: 100%;
+}

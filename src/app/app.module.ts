@@ -22,16 +22,17 @@ import { NavBarComponent } from './core/nav-bar/nav-bar.component';
 import { LoginService } from './modules/login/login.service';
 import { AuthInterceptor } from './core/interceptors/auth.interceptor';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ComprasModule } from './modules/page-compras/compras.module';
 
 
 @NgModule({
   declarations: [
-    AppComponent,   
+    AppComponent,
     FooterComponent,
     HomeComponent,
     SidebarComponent,
     NavBarComponent
-      
+
   ],
   imports: [
     BrowserModule,
@@ -48,16 +49,17 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatIconModule,
     AppMaterialModule,
     HttpClientModule,
-    ReactiveFormsModule
-   
-    
-    
+    ReactiveFormsModule,
+    ComprasModule
+
+
+
   ],
   providers: [
      {
-       provide: HTTP_INTERCEPTORS, 
+       provide: HTTP_INTERCEPTORS,
        useClass: AuthInterceptor,
-       multi:true 
+       multi:true
       }
     ],
   bootstrap: [AppComponent]

@@ -1,0 +1,48 @@
+<mat-card>
+  <mat-toolbar color="primary" class="center"> CADASTRO COMPRA</mat-toolbar>
+  <mat-card-content>
+  <form [formGroup]="form" >
+
+    <mat-form-field color="accent"class="full-width" color="primary">
+      <mat-label>DATA</mat-label>
+      <input matInput formControlName="data"  [matDatepicker]="data">
+      <mat-datepicker-toggle matSuffix [for]="data"></mat-datepicker-toggle>
+      <mat-datepicker #data ></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <input matInput placeholder="VALOR" formControlName="valorTotal" name="valorTotal">
+    </mat-form-field>
+
+    <mat-form-field class="full-width" >
+      <input matInput placeholder="DESCRIÇÃO" formControlName="descricao" name="descricao">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Prioridade</mat-label>
+      <mat-select formControlName="prioridade" name="prioridade">
+        <mat-option *ngFor="let p of prioridades" [value]="p.value">
+          {{p.value}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Status</mat-label>
+      <mat-select formControlName="status" name="status">
+        <mat-option *ngFor="let s of status" [value]="s.value">
+          {{s.value}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+  </form>
+
+</mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" (click)="onSubmit()">Salvar</button>
+      <button mat-raised-button (click)="onCancel()" >Cancelar</button>
+    </mat-card-actions>
+
+</mat-card>
+

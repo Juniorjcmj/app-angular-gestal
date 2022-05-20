@@ -26,5 +26,4 @@ export interface ContasPagar {
     nomeEmpresa?: String;
     empresa: Empresa;
 
-
 }

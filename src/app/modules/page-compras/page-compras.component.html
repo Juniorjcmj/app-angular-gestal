@@ -1,0 +1,208 @@
+<mat-toolbar class="top">
+  <button  mat-raised-button class="example-icon" color="primary" (click)="openDialog()">
+    <mat-icon>add</mat-icon> <span>Nova solicitação</span>
+  </button>
+
+  <span class="example-spacer"></span>
+  <button mat-icon-button class="example-icon favorite-icon" color="primary">
+    <mat-icon>equalizer</mat-icon>
+  </button>
+  <button mat-icon-button class="example-icon" color="primary" >
+    <mat-icon>recent_actors</mat-icon>
+  </button>
+</mat-toolbar>
+
+<!--grid de titulos-->
+
+
+<!--grid de solicitacoes-->
+
+<mat-tab-group mat-align-tabs="center">
+  <mat-tab label="TRIAGEM">
+    <div cols="4" rowHeight="2:1" *ngIf="triagem$ | async as triagem; else loading ">
+
+      <table mat-table [dataSource]="triagem" class="mat-elevation-z8">
+
+        <ng-container matColumnDef="DESCRIÇÃO" >
+          <th mat-header-cell *matHeaderCellDef> DESCRIÇÃO </th>
+          <td mat-cell *matCellDef="let element" > {{element.descricao}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="DATA" >
+          <th mat-header-cell *matHeaderCellDef> DATA </th>
+          <td mat-cell *matCellDef="let element" > {{element.data}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="VALOR" >
+          <th mat-header-cell *matHeaderCellDef> VALOR TOTAL </th>
+          <td mat-cell *matCellDef="let element" > {{element.valorTotal}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="PRIORIDADE" >
+          <th mat-header-cell *matHeaderCellDef> PRIORIDADE </th>
+          <td mat-cell *matCellDef="let element" > {{element.prioridade}} </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="DATACADASTRO" >
+          <th mat-header-cell *matHeaderCellDef>DATA CADASTRO</th>
+          <td mat-cell *matCellDef="let element" > {{element.dataCriacao}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="DATAATUALIZACAO" >
+          <th mat-header-cell *matHeaderCellDef>DATA CADASTRO</th>
+          <td mat-cell *matCellDef="let element" > {{element.dataAtualizacao}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+
+
+
+  </div>
+  </mat-tab>
+  <mat-tab label="COTAÇÃO">
+    <div cols="4" rowHeight="2:1" *ngIf="cotacao$ | async as cotacao; else loading ">
+
+      <table mat-table [dataSource]="cotacao" class="mat-elevation-z8">
+
+        <ng-container matColumnDef="DESCRIÇÃO" >
+          <th mat-header-cell *matHeaderCellDef> DESCRIÇÃO </th>
+          <td mat-cell *matCellDef="let element" > {{element.descricao}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="DATA" >
+          <th mat-header-cell *matHeaderCellDef> DATA </th>
+          <td mat-cell *matCellDef="let element" > {{element.data}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="VALOR" >
+          <th mat-header-cell *matHeaderCellDef> VALOR TOTAL </th>
+          <td mat-cell *matCellDef="let element" > {{element.valorTotal}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="PRIORIDADE" >
+          <th mat-header-cell *matHeaderCellDef> PRIORIDADE </th>
+          <td mat-cell *matCellDef="let element" > {{element.prioridade}} </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="DATACADASTRO" >
+          <th mat-header-cell *matHeaderCellDef>DATA CADASTRO</th>
+          <td mat-cell *matCellDef="let element" > {{element.dataCriacao}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="DATAATUALIZACAO" >
+          <th mat-header-cell *matHeaderCellDef>DATA CADASTRO</th>
+          <td mat-cell *matCellDef="let element" > {{element.dataAtualizacao}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+
+
+
+  </div>
+  </mat-tab>
+  <mat-tab label="AUTORIZAÇÃO">
+    <div cols="4" rowHeight="2:1" *ngIf="autoricacao$ | async as autoricacao; else loading ">
+
+      <table mat-table [dataSource]="autoricacao" class="mat-elevation-z8">
+
+        <ng-container matColumnDef="DESCRIÇÃO" >
+          <th mat-header-cell *matHeaderCellDef> DESCRIÇÃO </th>
+          <td mat-cell *matCellDef="let element" > {{element.descricao}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="DATA" >
+          <th mat-header-cell *matHeaderCellDef> DATA </th>
+          <td mat-cell *matCellDef="let element" > {{element.data}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="VALOR" >
+          <th mat-header-cell *matHeaderCellDef> VALOR TOTAL </th>
+          <td mat-cell *matCellDef="let element" > {{element.valorTotal}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="PRIORIDADE" >
+          <th mat-header-cell *matHeaderCellDef> PRIORIDADE </th>
+          <td mat-cell *matCellDef="let element" > {{element.prioridade}} </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="DATACADASTRO" >
+          <th mat-header-cell *matHeaderCellDef>DATA CADASTRO</th>
+          <td mat-cell *matCellDef="let element" > {{element.dataCriacao}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="DATAATUALIZACAO" >
+          <th mat-header-cell *matHeaderCellDef>DATA CADASTRO</th>
+          <td mat-cell *matCellDef="let element" > {{element.dataAtualizacao}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+
+
+
+  </div>
+  </mat-tab>
+  <mat-tab label="COMPRA">
+
+    <div cols="4" rowHeight="2:1" *ngIf="compra$ | async as compra; else loading ">
+
+      <table mat-table [dataSource]="compra" class="mat-elevation-z8">
+
+        <ng-container matColumnDef="DESCRIÇÃO" >
+          <th mat-header-cell *matHeaderCellDef> DESCRIÇÃO </th>
+          <td mat-cell *matCellDef="let element" > {{element.descricao}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="DATA" >
+          <th mat-header-cell *matHeaderCellDef> DATA </th>
+          <td mat-cell *matCellDef="let element" > {{element.data}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="VALOR" >
+          <th mat-header-cell *matHeaderCellDef> VALOR TOTAL </th>
+          <td mat-cell *matCellDef="let element" > {{element.valorTotal}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="PRIORIDADE" >
+          <th mat-header-cell *matHeaderCellDef> PRIORIDADE </th>
+          <td mat-cell *matCellDef="let element" > {{element.prioridade}} </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="DATACADASTRO" >
+          <th mat-header-cell *matHeaderCellDef>DATA CADASTRO</th>
+          <td mat-cell *matCellDef="let element" > {{element.dataCriacao}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="DATAATUALIZACAO" >
+          <th mat-header-cell *matHeaderCellDef>DATA CADASTRO</th>
+          <td mat-cell *matCellDef="let element" > {{element.dataAtualizacao}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+
+
+
+  </div>
+
+  </mat-tab>
+</mat-tab-group>
+
+
+
+<ng-template #loading>
+  <div class="loading-spinner">
+  <mat-spinner></mat-spinner>
+</div>
+
+</ng-template>
